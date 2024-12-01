@@ -1,0 +1,1 @@
+# school-discord-manager
