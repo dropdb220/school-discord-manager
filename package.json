@@ -1,0 +1,22 @@
+{
+  "name": "school-discord-manager",
+  "packageManager": "yarn@4.5.3",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "bufferutil": "^4.0.8",
+    "discord.js": "^14.16.3",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "zlib-sync": "^0.1.9"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.1",
+    "typescript": "^5.7.2"
+  },
+  "scripts": {
+    "start": "node dist/index.js",
+    "build": "tsc"
+  }
+}
