@@ -1,12 +1,15 @@
 {
   "name": "school-discord-manager",
   "packageManager": "yarn@4.5.3",
+  "type": "module",
   "dependencies": {
     "body-parser": "^1.20.3",
     "bufferutil": "^4.0.8",
-    "discord.js": "^14.16.3",
+    "discord.js": "^14.18.0",
     "dotenv": "^16.4.5",
     "express": "^4.21.1",
+    "iconv-lite": "^0.6.3",
+    "node-fetch": "^3.3.2",
     "zlib-sync": "^0.1.9"
   },
   "devDependencies": {
@@ -17,6 +20,7 @@
   },
   "scripts": {
     "start": "node dist/index.js",
+    "update-cmd": "node dist/bot/update-cmds.js",
     "build": "tsc"
   }
 }

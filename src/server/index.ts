@@ -1,8 +1,8 @@
-import Discord from 'discord.js';
+import * as Discord from 'discord.js';
 import express from 'express';
 import bodyParser from 'body-parser';
-import verify from '../bot/verify';
-import unverify from '../bot/unverify';
+import verify from '../bot/verify.js';
+import unverify from '../bot/unverify.js';
 
 const app = express();
 
@@ -43,5 +43,6 @@ export default async function startServer(client: Discord.Client) {
     });
     app.listen(process.env.PORT, () => {
         console.log('Server started on port', process.env.PORT);
+        console.log('----------')
     });
 }

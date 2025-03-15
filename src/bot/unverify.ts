@@ -1,4 +1,4 @@
-import Discord from 'discord.js';
+import * as Discord from 'discord.js';
 
 export default async function unverify(client: Discord.Client, id: string) {
     const guild = await client.guilds.fetch(process.env.GUILD_ID as string)
