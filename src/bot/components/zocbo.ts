@@ -16,8 +16,22 @@ export default {
         const isApproved = interaction.customId.includes('approve');
         const userId = interaction.customId.split('-')[2];
         const user = await client.users.fetch(userId);
+        const guild = await client.guilds.fetch(process.env.GUILD_ID!);
+        const member = await guild.members.fetch(user.id);
         const origMsg = await interaction.channel!.messages.fetch(interaction.message.id);
         const title = origMsg.embeds[0].fields[0].value;
+        if (!member.roles.cache.has(process.env.PDF_ROLE_ID!)) {
+            await interaction.editReply({
+                embeds: [
+                    new Discord.EmbedBuilder()
+                        .setTitle('Unauthorized')
+                        .setDescription('You are not authorized to approve or reject PDFs.')
+                        .setColor(Discord.Colors.Red)
+                        .setTimestamp()
+                ]
+            });
+            return;
+        }
         if (isApproved) {
             const oneDrvTokenRequest = await fetch(`https://login.microsoftonline.com/${process.env.ONEDRIVE_TENANT}/oauth2/v2.0/token`, {
                 method: 'POST',

@@ -112,7 +112,7 @@ export default {
                 if (collector.customId === 'request') {
                     client.channels.fetch(process.env.ZOCBO_CHANNEL_ID!).then(async (channel) => {
                         await (channel as Discord.TextChannel).send({
-                            content: `<@&${process.env.MOD_ROLE_ID}>`,
+                            content: `<@&${process.env.PDF_ROLE_ID}>`,
                             embeds: [
                                 new Discord.EmbedBuilder()
                                     .setTitle('New Zocbo Request')
@@ -122,6 +122,7 @@ export default {
                                         { name: 'URL', value: url }
                                     ])
                                     .setColor(Discord.Colors.Yellow)
+                                    .setFooter({ text: `Requested by ${interaction.user.tag}`, iconURL: interaction.user.displayAvatarURL() })
                                     .setTimestamp()
                             ],
                             components: [
