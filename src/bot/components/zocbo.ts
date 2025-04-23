@@ -18,9 +18,10 @@ export default {
         const user = await client.users.fetch(userId);
         const guild = await client.guilds.fetch(process.env.GUILD_ID!);
         const member = await guild.members.fetch(user.id);
+        const admin = await guild.members.fetch(interaction.user.id);
         const origMsg = await interaction.channel!.messages.fetch(interaction.message.id);
         const title = origMsg.embeds[0].fields[0].value;
-        if (!member.roles.cache.has(process.env.PDF_ROLE_ID!)) {
+        if (!admin.roles.cache.has(process.env.PDF_ROLE_ID!)) {
             await interaction.editReply({
                 embeds: [
                     new Discord.EmbedBuilder()
