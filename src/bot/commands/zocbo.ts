@@ -186,17 +186,16 @@ export default {
             }
         } else {
             await interaction.editReply({
-                embeds: [
-                    new Discord.EmbedBuilder()
-                        .setTitle('Downloaded PDF')
-                        .setDescription('The file you requested has already been downloaded by other users. You can download it from the link below.')
-                        .addFields([
-                            { name: 'Title', value: match },
-                            { name: 'Download', value: `[Click Here](${onedrvFile['@microsoft.graph.downloadUrl']})` }
-                        ])
-                        .setColor(Discord.Colors.Green)
-                        .setTimestamp()
-                ]
+                                embeds: [
+                                                        new Discord.EmbedBuilder()
+                                                                .setTitle('Downloaded PDF')
+                                                                .setDescription(`The file you requested has already been downloaded by other users. [Click here](${onedrvFile['@microsoft.graph.downloadUrl']}) to download.`)
+                                                                .addFields([
+                                          { name: 'Title', value: match }
+                                                                ])
+                                                                .setColor(Discord.Colors.Green)
+                                                                .setTimestamp()
+                                                ]
             });
         }
     }
