@@ -78,10 +78,9 @@ export default {
                     embeds: [
                         new Discord.EmbedBuilder()
                             .setTitle('PDF Downloaded')
-                            .setDescription('The PDF you requested has been approved and is now available for use.')
+                            .setDescription(`The PDF you requested has been approved and is now available for use. [Click here](${onedrvFile['@microsoft.graph.downloadUrl']}) to download.`)
                             .addFields([
-                                { name: 'Title', value: title },
-                                { name: 'Download', value: `[Click Here](${onedrvFile['@microsoft.graph.downloadUrl']})` }
+                                { name: 'Title', value: title }
                             ])
                             .setColor(Discord.Colors.Green)
                             .setTimestamp()
@@ -92,10 +91,9 @@ export default {
                     embeds: [
                         new Discord.EmbedBuilder()
                             .setTitle('PDF Approved')
-                            .setDescription('The PDF has been approved and is now available for use. Its download link has been sent to the user.')
+                            .setDescription(`The PDF has been approved and is now available for use. The [download link](${onedrvFile['@microsoft.graph.downloadUrl']}) has been sent to the user.`)
                             .addFields([
-                                { name: 'Title', value: title },
-                                { name: 'Download', value: `[Click Here](${onedrvFile['@microsoft.graph.downloadUrl']})` }
+                                { name: 'Title', value: title }
                             ])
                             .setColor(Discord.Colors.Green)
                             .setTimestamp()
